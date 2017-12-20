@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: sampleapp
+  namespace: ${app_env}
+spec:
+  selector:
+    matchLabels:
+      app: sampleapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sampleapp
+    spec:
+      containers:
+      - name: sampleapp
+        image: cddirector/sampleapp:1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP
