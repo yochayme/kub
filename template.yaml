@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Template
+labels: 
+  template: template-name
+metadata: 
+  annotations: 
+    description: "Application template for EAP 6 applications built using STI."
+    iconClass: icon-jboss
+  name: template-name
+objects: 
+  - 
+    apiVersion: v1
+    kind: Namespace
+    metadata: 
+      labels: ~
+      name: "${NAMESPACE_NAME}"
+parameters: 
+  - 
+    description: "EAP Release version, e.g. 6.4, etc."
+    name: NAMESPACE_NAME
+    required: true
+    value: "test template"
